@@ -82,52 +82,52 @@ function createBoard() {
 
 
 // ========================================
-// DRAW GRID
+// DRAW CLEAN GRID
 // ========================================
 
 function drawGrid() {
 
-    ctx.strokeStyle = "#252525";
+    ctx.strokeStyle = "rgba(255, 255, 255, 0.055)";
     ctx.lineWidth = 1;
 
+    // Vertical lines
 
-    for (let col = 0; col <= COLS; col++) {
+    for (let col = 1; col < COLS; col++) {
+
+        const x =
+            col * BLOCK_SIZE + 0.5;
 
         ctx.beginPath();
 
-        ctx.moveTo(
-            col * BLOCK_SIZE,
-            0
-        );
+        ctx.moveTo(x, 0);
 
         ctx.lineTo(
-            col * BLOCK_SIZE,
+            x,
             canvas.height
         );
 
         ctx.stroke();
-
     }
 
 
-    for (let row = 0; row <= ROWS; row++) {
+    // Horizontal lines
+
+    for (let row = 1; row < ROWS; row++) {
+
+        const y =
+            row * BLOCK_SIZE + 0.5;
 
         ctx.beginPath();
 
-        ctx.moveTo(
-            0,
-            row * BLOCK_SIZE
-        );
+        ctx.moveTo(0, y);
 
         ctx.lineTo(
             canvas.width,
-            row * BLOCK_SIZE
+            y
         );
 
         ctx.stroke();
-
     }
-
 }
 
 
