@@ -132,31 +132,95 @@ function drawGrid() {
 
 
 // ========================================
-// DRAW BLOCK
+// DRAW POLISHED BLOCK
 // ========================================
 
 function drawBlock(col, row, color) {
 
+    const x =
+        col * BLOCK_SIZE;
+
+    const y =
+        row * BLOCK_SIZE;
+
+
+    const padding = 2;
+
+    const size =
+        BLOCK_SIZE - padding * 2;
+
+
+    // Main block
+
     ctx.fillStyle = color;
 
-    ctx.fillRect(
-        col * BLOCK_SIZE,
-        row * BLOCK_SIZE,
-        BLOCK_SIZE,
-        BLOCK_SIZE
+    ctx.beginPath();
+
+    ctx.roundRect(
+        x + padding,
+        y + padding,
+        size,
+        size,
+        5
     );
 
+    ctx.fill();
 
-    ctx.strokeStyle = "#111";
 
-    ctx.lineWidth = 2;
+    // Dark lower edge
 
-    ctx.strokeRect(
-        col * BLOCK_SIZE,
-        row * BLOCK_SIZE,
-        BLOCK_SIZE,
-        BLOCK_SIZE
+    ctx.fillStyle =
+        "rgba(0, 0, 0, 0.22)";
+
+    ctx.beginPath();
+
+    ctx.roundRect(
+        x + padding,
+        y + BLOCK_SIZE - 7,
+        size,
+        5,
+        3
     );
+
+    ctx.fill();
+
+
+    // Subtle top highlight
+
+    ctx.fillStyle =
+        "rgba(255, 255, 255, 0.25)";
+
+    ctx.beginPath();
+
+    ctx.roundRect(
+        x + padding + 3,
+        y + padding + 2,
+        size - 6,
+        4,
+        2
+    );
+
+    ctx.fill();
+
+
+    // Thin outline
+
+    ctx.strokeStyle =
+        "rgba(255, 255, 255, 0.12)";
+
+    ctx.lineWidth = 1;
+
+    ctx.beginPath();
+
+    ctx.roundRect(
+        x + padding + 0.5,
+        y + padding + 0.5,
+        size - 1,
+        size - 1,
+        5
+    );
+
+    ctx.stroke();
 
 }
 
