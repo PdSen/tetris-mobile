@@ -1,0 +1,517 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background: #111;
+    color: white;
+
+    font-family: Arial, sans-serif;
+
+    overflow: hidden;
+
+    touch-action: none;
+
+    overscroll-behavior: none;
+}
+
+
+/* ========================================
+   MAIN CONTAINER
+======================================== */
+
+.game-container {
+    width: 100%;
+    max-width: 480px;
+
+    height: 100dvh;
+
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: stretch;
+
+    padding: 8px 12px;
+
+    overflow: hidden;
+}
+
+
+/* ========================================
+   TOP INFORMATION
+======================================== */
+
+.top-bar {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-around;
+
+    flex-shrink: 0;
+
+    margin-bottom: 6px;
+}
+
+.top-bar div {
+    text-align: center;
+}
+
+.label {
+    display: block;
+
+    font-size: 9px;
+
+    color: #888;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 2px;
+}
+
+.top-bar span:last-child {
+    font-size: 17px;
+
+    font-weight: bold;
+}
+
+
+/* ========================================
+   GAME AREA
+======================================== */
+
+.game-wrapper {
+    position: relative;
+
+    width: 100%;
+    flex: 0 1 auto;
+
+    display: block;
+
+    min-height: 0;
+}
+
+
+.game-area {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 0;
+
+    display: block;
+}
+
+
+/* ========================================
+   GAME CANVAS
+======================================== */
+
+#gameCanvas {
+    background: #181818;
+
+    border: 2px solid #333;
+
+    display: block;
+
+    width: min(70vw, 240px);
+
+    height: auto;
+
+    aspect-ratio: 3 / 5;
+
+    max-height: 54dvh;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    touch-action: none;
+
+    user-select: none;
+
+    -webkit-user-select: none;
+}
+
+
+/* ========================================
+   GAME OVER
+======================================== */
+
+.game-over-screen {
+    position: absolute;
+
+    inset: 0;
+
+    display: none;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.9);
+
+    text-align: center;
+
+    z-index: 10;
+}
+
+.game-over-screen h2 {
+    margin-bottom: 12px;
+
+    font-size: 26px;
+
+    letter-spacing: 2px;
+}
+
+.game-over-screen p {
+    margin: 0;
+
+    color: #999;
+
+    font-size: 12px;
+
+    text-transform: uppercase;
+}
+
+#finalScore {
+    margin: 5px 0 20px;
+
+    font-size: 32px;
+
+    font-weight: bold;
+}
+
+#restartBtn {
+    padding: 11px 25px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: white;
+
+    color: black;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+#restartBtn:active {
+    transform: scale(0.95);
+}
+
+
+/* ========================================
+   CONTROLS
+======================================== */
+
+.controls {
+    width: 100%;
+    max-width: 340px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 6px;
+
+    margin: 7px auto 0;
+
+    flex-shrink: 0;
+}
+
+
+/* ========================================
+   PAUSE
+======================================== */
+
+.top-controls {
+    display: flex;
+
+    justify-content: center;
+}
+
+.top-controls button {
+    width: 100%;
+
+    max-width: 110px;
+}
+
+
+/* ========================================
+   MOVEMENT
+======================================== */
+
+.movement-controls {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr 1fr;
+
+    gap: 6px;
+}
+
+
+/* ========================================
+   BUTTONS
+======================================== */
+
+.controls button {
+    height: 42px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #292929;
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    touch-action: manipulation;
+
+    user-select: none;
+
+    -webkit-user-select: none;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+.controls button:active {
+    transform: scale(0.94);
+
+    background: #444;
+}
+
+
+/* ========================================
+   ROTATE / HARD DROP
+======================================== */
+
+.rotate-btn,
+.drop-btn {
+    width: 100%;
+}
+
+
+
+/* ========================================
+   SMALL PHONE
+======================================== */
+
+@media (max-height: 700px) {
+
+    .game-container {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    .top-bar {
+        margin-bottom: 4px;
+    }
+
+    .top-bar span:last-child {
+        font-size: 15px;
+    }
+
+    #gameCanvas {
+        max-height: 54dvh;
+
+        width: min(70vw,
+                240px);
+    }
+
+    .controls {
+        margin-top: 5px;
+
+        gap: 5px;
+
+        max-width: 300px;
+    }
+
+    .controls button {
+        height: 38px;
+
+        border-radius: 10px;
+
+        font-size: 15px;
+    }
+
+    .start-btn {
+        margin-top: 5px;
+
+        padding: 8px 25px;
+
+        font-size: 12px;
+    }
+}
+
+
+/* ========================================
+   VERY SHORT SCREENS
+======================================== */
+
+@media (max-height: 600px) {
+
+    #gameCanvas {
+        max-height: 48dvh;
+
+        width: min(62vw,
+                210px);
+    }
+
+    .controls button {
+        height: 34px;
+
+        font-size: 14px;
+    }
+
+    .controls {
+        gap: 4px;
+    }
+
+    .start-btn {
+        padding: 7px 22px;
+    }
+}
+
+/* ========================================
+   START SCREEN
+======================================== */
+
+.start-screen {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 20;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    background: #111;
+}
+
+
+.start-screen h1 {
+    font-size: 42px;
+
+    letter-spacing: 6px;
+
+    margin-bottom: 8px;
+}
+
+
+.start-screen p {
+    color: #888;
+
+    font-size: 13px;
+
+    margin-bottom: 30px;
+}
+
+
+#playBtn {
+    padding: 14px 45px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: white;
+
+    color: black;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    touch-action: manipulation;
+}
+
+
+#playBtn:active {
+    transform: scale(0.95);
+}
+
+
+/* ========================================
+   PAUSE SCREEN
+======================================== */
+
+.pause-screen {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 15;
+
+    display: none;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    background: rgba(0, 0, 0, 0.88);
+}
+
+
+.pause-screen h2 {
+    font-size: 30px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 25px;
+}
+
+
+#resumeBtn {
+    padding: 13px 32px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: white;
+
+    color: black;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+#resumeBtn:active {
+    transform: scale(0.95);
+}

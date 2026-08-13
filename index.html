@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no">
+
+    <title>Tetris</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+    <div class="game-container">
+
+
+        <!-- ============================= -->
+        <!-- SCORE BAR -->
+        <!-- ============================= -->
+
+        <header class="top-bar">
+
+            <div>
+                <span class="label">
+                    SCORE
+                </span>
+
+                <span id="score">
+                    0
+                </span>
+            </div>
+
+
+            <div>
+                <span class="label">
+                    LINES
+                </span>
+
+                <span id="lines">
+                    0
+                </span>
+            </div>
+
+
+            <div>
+                <span class="label">
+                    LEVEL
+                </span>
+
+                <span id="level">
+                    1
+                </span>
+            </div>
+
+        </header>
+
+
+
+        <!-- ============================= -->
+        <!-- GAME BOARD -->
+        <!-- ============================= -->
+
+        <div class="game-wrapper">
+            <div id="startScreen" class="start-screen">
+
+                <h1>TETRIS</h1>
+
+                <p>Classic Block Puzzle</p>
+
+                <button id="playBtn">
+                    PLAY
+                </button>
+
+            </div>
+
+            <main class="game-area">
+
+                <canvas id="gameCanvas"></canvas>
+
+
+                <!-- GAME OVER -->
+
+                <div id="gameOverScreen" class="game-over-screen">
+
+                    <h2>
+                        GAME OVER
+                    </h2>
+
+                    <p>
+                        Score
+                    </p>
+
+                    <div id="finalScore">
+                        0
+                    </div>
+
+                    <button id="restartBtn">
+                        PLAY AGAIN
+                    </button>
+
+                </div>
+
+                <div id="pauseScreen" class="pause-screen">
+
+                    <h2>PAUSED</h2>
+
+                    <button id="resumeBtn">
+                        RESUME
+                    </button>
+
+                </div>
+
+            </main>
+
+        </div>
+
+
+
+        <!-- ============================= -->
+        <!-- CONTROLS -->
+        <!-- ============================= -->
+
+        <section class="controls">
+
+
+            <!-- PAUSE -->
+
+            <div class="top-controls">
+
+                <button id="pauseBtn">
+                    Ⅱ
+                </button>
+
+            </div>
+
+
+            <!-- MOVEMENT -->
+
+            <div class="movement-controls">
+
+                <button id="leftBtn">
+                    ◀
+                </button>
+
+
+                <button id="downBtn">
+                    ▼
+                </button>
+
+
+                <button id="rightBtn">
+                    ▶
+                </button>
+
+            </div>
+
+
+            <!-- ROTATE -->
+
+            <button id="rotateBtn" class="rotate-btn">
+
+                ↻ ROTATE
+
+            </button>
+
+
+            <!-- HARD DROP -->
+
+            <button id="dropBtn" class="drop-btn">
+
+                ⬇ HARD DROP
+
+            </button>
+
+        </section>
+
+    </div>
+
+
+    <script src="game.js"></script>
+
+</body>
+
+</html>
